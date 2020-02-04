@@ -8,5 +8,5 @@ import { mock } from './models/collegue.mock';
 })
 export class AppComponent {
   title = 'collegues-front';
-  collegueinconnu = mock;
+  collegueinconnu = mock; 
 }
