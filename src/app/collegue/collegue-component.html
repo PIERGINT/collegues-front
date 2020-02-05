@@ -3,29 +3,35 @@
     <div class="col-3">
         <img [src]="col.photoUrl" style="width:50%">
     </div>
-    <div class="col-5 text-left">
+    <div class="col-5 text-middle">
         <ul class="list-unstyled">
             <li>Matricule</li>
             <li>Nom</li>
-            <li>Prenom</li>
+            <li>Prénom(s)</li>
             <li>Email</li>
             <li>Date de naissance</li>
         </ul>
     </div>
-    <div class="col-4">
+    <div class="col-4 text-left">
         <ul class="list-unstyled">
             <li>{{col.matricule}}</li>
-            <li>{{col.nom}}</li>
-            <li>{{col.prenoms}}</li>
-            <li>{{col.email}}</li>
-            <li>{{col.dateDeNaissance | date }}</li>
+            <li>{{col.nom | uppercase }}</li>
+            <li>{{col.prenoms| uppercase }}</li>
+            <li>{{col.dateDeNaissance | date:'ddMMyyyy' }}</li>
+            <li *ngIf="!modeEdition; else modeSaisie">{{col.email}}</li>
+                <ng-template #modeSaisie>
+                    <li><input type="text" [value]="col.email"
+                        #saisieEmail (change)="emailChange(saisieEmail.value, saisiePhoto)" (mouseover)="onMouse()"></li>
+           <li><input type="text" [value]="col.photoUrl" #saisiePhoto (change)="urlChange(saisiePhoto.value)"></li>
+            </ng-template>>
         </ul>
     </div>
 
 </div>
 <div class="row no-padding">
     <div class="col-6 ">
-        <button type="button" class="btn btn-link" (click)="creerUnCollegue()">Créer un nouveau collègue</button></div>
+        <button type="button" class="btn btn-link" [hidden]="modeEdition" (click)="creerUnCollegue()">Créer un nouveau collègue</button></div>
     <div class="col-6 ">
-        <button type="button" class="btn btn-primary" (click)="modifierCollegue()">Modifier</button></div>
+        <button type="button" class="btn btn-primary" [hidden]="modeEdition" (click)="modifierCollegue()">Modifier</button></div>
+        <button type="button" class="btn btn-primary" [hidden]="!modeEdition" (click)="validerCollegue()">Valider</button>
 </div>

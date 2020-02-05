@@ -12,6 +12,12 @@ export class CollegueComponent implements OnInit {
 
   @Input() col : Collegue;
   
+  modeEdition = false;
+
+  prenomSaisie:string;
+  emailSaisie:string;
+  urlSaisie:string;
+
   constructor() {
   }
 
@@ -24,5 +30,26 @@ export class CollegueComponent implements OnInit {
 
   creerUnCollegue() {
     console.log('Création de votre nouveau collègue')
+  }
+
+  prenomChange(prenomSaisie :string) {
+    this.prenomSaisie = prenomSaisie;
+  }
+
+  emailChange( emailSaisi :string, saisiePhoto: HTMLInputElement) {
+    this.emailSaisie = emailSaisi;
+    saisiePhoto.focus();
+    //console.log(emailSaisi)
+  }
+
+  urlChange( urlSaisie :string) {
+    this.urlSaisie = urlSaisie ;
+  }
+  onMouse() {
+    console.log('souris!!!')
+  }
+
+  validerCollegue() {
+    this.modeEdition = false;
   }
 }
