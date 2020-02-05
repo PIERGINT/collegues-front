@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collegue } from './Collegue';
+import { Collegue } from '../collegue/Collegue';
 
 
 @Component({
@@ -18,4 +18,11 @@ export class CollegueComponent implements OnInit {
   ngOnInit() {
   }
 
+  modifierCollegue() {
+    console.log('Modification du collègue')
+  }
+
+  creerUnCollegue() {
+    console.log('Création de votre nouveau collègue')
+  }
 }
