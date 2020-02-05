@@ -1,10 +1,10 @@
 <div class="row no-padding">
 
     <div class="col-3">
-        <img [src]="col.photoUrl">
+        <img [src]="col.photoUrl" style="width:50%">
     </div>
     <div class="col-5 text-left">
-        <ul>
+        <ul class="list-unstyled">
             <li>Matricule</li>
             <li>Nom</li>
             <li>Prenom</li>
@@ -13,19 +13,19 @@
         </ul>
     </div>
     <div class="col-4">
-        <ul>
+        <ul class="list-unstyled">
             <li>{{col.matricule}}</li>
             <li>{{col.nom}}</li>
-            <li>{{col.prenoms}</li>
-<li>{{col.email}</li>
-<li>{{col.dateDeNaissance}}</li>
+            <li>{{col.prenoms}}</li>
+            <li>{{col.email}}</li>
+            <li>{{col.dateDeNaissance | date }}</li>
         </ul>
     </div>
 
 </div>
 <div class="row no-padding">
-    <div class="col-12 ">
+    <div class="col-6 ">
         <button type="button" class="btn btn-link" (click)="creerUnCollegue()">Créer un nouveau collègue</button></div>
-    <div class="col-12 ">
+    <div class="col-6 ">
         <button type="button" class="btn btn-primary" (click)="modifierCollegue()">Modifier</button></div>
 </div>
