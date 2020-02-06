@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import {Collegue} from '../collegue/Collegue';
 
 @Injectable({
@@ -16,7 +15,6 @@ rechercherParNom(nom : string): Observable<Collegue[]> {
   
 }
 
-recupererCollegueCourant(): Collegue {
-  return null;
 
-}}
+
+}
