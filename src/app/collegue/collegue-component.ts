@@ -25,7 +25,8 @@ export class CollegueComponent implements OnInit {
   }
 
   modifierCollegue() {
-    console.log('Modification du collègue')
+    this.modeEdition = true;
+    //console.log('Modification du collègue')
   }
 
   creerUnCollegue() {

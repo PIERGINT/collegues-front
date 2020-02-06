@@ -5,6 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { CollegueComponent } from './collegue-component';
 import { RechercheCollegueParNomComponent } from '../recherchercollegueparnom/recherche-collegue-par-nom.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RechercheCollegueParNomComponent } from '../recherchercollegueparnom/re
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

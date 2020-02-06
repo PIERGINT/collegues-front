@@ -9,7 +9,7 @@
   </div>
 
   <div class="col">
-    <button class="btn btn-primary" (click)="rechercherParNom(saisieNom.value)">Rechercher</button>
+    <button class="btn btn-primary" (click)="rechercher(saisieNom.value)">Rechercher</button>
   </div>
 
 </div>
@@ -18,7 +18,10 @@
   <div class="col">
   <ul>
     <!-- for (String matriculeCourant : listeMatricules) -->
-    <li *ngFor="let m of listeMatricules">{{m}}</li>
+    <li *ngFor="let m of listeMatricules">{{m}}
+      <p>Matricule : {{m.matricule}}</p>
+    </li> 
+    
   </ul>
   </div>
 </div>
