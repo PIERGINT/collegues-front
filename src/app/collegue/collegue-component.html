@@ -13,25 +13,30 @@
         </ul>
     </div>
     <div class="col-4 text-left">
-        <ul class="list-unstyled">
-            <li>{{col.matricule}}</li>
-            <li>{{col.nom | uppercase }}</li>
-            <li>{{col.prenoms| uppercase }}</li>
-            <li>{{col.dateDeNaissance | date:'ddMMyyyy' }}</li>
-            <li *ngIf="!modeEdition; else modeSaisie">{{col.email}}</li>
+
+        <form #etatForm="ngForm">
+            <ul class="list-unstyled">
+                <li>{{col.matricule}}</li>
+                <li>{{col.nom | uppercase }}</li>
+                <li>{{col.prenoms| uppercase }}</li>
+                <li>{{col.dateDeNaissance | date:'ddMMyyyy' }}</li>
+                <li *ngIf="!modeEdition; else modeSaisie">{{col.email}}</li>
                 <ng-template #modeSaisie>
-                    <li><input type="text" [value]="col.email"
-                        #saisieEmail (change)="emailChange(saisieEmail.value, saisiePhoto)" (mouseover)="onMouse()"></li>
-           <li><input type="text" [value]="col.photoUrl" #saisiePhoto (change)="urlChange(saisiePhoto.value)"></li>
-            </ng-template>>
-        </ul>
+                    <li><input type="text" [value]="col.email" #saisieEmail
+                            (change)="emailChange(saisieEmail.value, saisiePhoto)" (mouseover)="onMouse()"></li>
+                    <li><input type="text" [value]="col.photoUrl" #saisiePhoto (change)="urlChange(saisiePhoto.value)">
+                    </li>
+                </ng-template>>
+            </ul>
+        </form>
     </div>
 
 </div>
 <div class="row no-padding">
     <div class="col-6 ">
-        <button class="btn btn-link" [hidden]="modeEdition" (click)="creerUnCollegue()">Créer un nouveau collègue</button></div>
+        <button class="btn btn-link" [hidden]="modeEdition" (click)="creerUnCollegue()">Créer un nouveau
+            collègue</button></div>
     <div class="col-6 ">
-        <button  class="btn btn-primary" [hidden]="modeEdition" (click)="modifierCollegue()">Modifier</button></div>
-        <button  class="btn btn-primary" [hidden]="!modeEdition" (click)="validerCollegue()">Valider</button>
+        <button class="btn btn-primary" [hidden]="modeEdition" (click)="modifierCollegue()">Modifier</button>
+        <button class="btn btn-primary" [hidden]="!modeEdition" (click)="validerCollegue()">Valider</button></div>
 </div>

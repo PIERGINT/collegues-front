@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { mock } from './collegue.mock';
-import { Collegue } from '../collegue/Collegue';
+import { mock } from './collegue/collegue.mock';
+import { Collegue } from './collegue/Collegue';
 
 @Component({
   selector: 'app-root',

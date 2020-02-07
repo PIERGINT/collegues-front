@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Observable } from 'rxjs';
-import { listeMats } from '../collegue/matricules.mock';
 import { Collegue } from '../collegue/Collegue';
 @Component({
   selector: 'app-recherche-collegue-par-nom',
@@ -9,15 +8,15 @@ import { Collegue } from '../collegue/Collegue';
 })
 export class RechercheCollegueParNomComponent implements OnInit {
 
-  listeMatricules: Observable<String[]>;
+  listeMatricules: Observable<Collegue[]>;
 
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
   }
 
-  rechercher(listeMatricules) {
-    listeMatricules = listeMats;
+  rechercher(nom: string) {
+    this.listeMatricules = this.dataservice.rechercherParNom(nom);
   }
 
 }

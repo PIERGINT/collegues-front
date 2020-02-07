@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Collegue} from '../collegue/Collegue';
+import { environmentprod } from '../../environments/environment.prod';
+
+const backendUrl = environmentprod.backendUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +18,8 @@ rechercherParNom(nom : string): Observable<Collegue[]> {
   
 }
 
-
+ajouterCollegue(newCollegue: Collegue): Observable<void> {
+  return this.httpClient.post<void>(backendUrl, newCollegue);
+}
 
 }

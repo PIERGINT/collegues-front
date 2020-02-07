@@ -1,0 +1,49 @@
+<form #etatForm="ngForm">
+    <div class="row no-padding">
+
+        <div class="col-3">
+            <img [src]="collegueNew.photoUrl" style="width:50%">
+        </div>
+        <div class="col-5 text-middle">
+
+            <label>Nom</label><input type="text" name="nom" [(ngModel)]="collegueNew.nom" required minlength="3"
+                #etatNom="ngModel">
+            <p *ngIf="etatNom.invalid && etatNom.dirty">Vous devez saisir un nom d'au moins 3 lettres</p>
+
+            <label>Prénom(s)</label><input type="text" name="prenoms" [(ngModel)]="collegueNew.prenoms" required
+                minlength="3" #etatPrenom="ngModel">
+            <p *ngIf="etatPrenom.invalid && etatPrenom.dirty">Vous devez saisir un prénom d'au moins 3 lettres
+            </p>
+
+
+            <label>Date de naissance</label><input type="date" name="dateDeNaissance"
+                [(ngModel)]="collegueNew.dateDeNaissance" required #etatdateDeNaissance="ngModel">
+            <p *ngIf="etatdateDeNaissance.invalid && etatdateDeNaissance.dirty">Veuillez saisir une date de naissance
+                valide</p>
+
+            <label>Email</label><input type="email" name="email" [(ngModel)]="collegueNew.email" required
+                #etatEmail="ngModel">
+            <p *ngIf="etatEmail.invalid && etatEmail.dirty">Veuillez saisir un email</p>
+
+
+            <input type="url" name="photoUrl" [(ngModel)]="collegueNew.photoUrl" required #etatPhotoUrl="ngModel">
+            <p *ngIf="etatPhotoUrl.invalid && etatPhotoUrl.dirty">Veuillez saisir une URL de photo de 7
+                caractères minimum</p>
+
+
+        </div>
+
+        <div *ngIf="messageErreur" class="alert alert-danger" role="alert">
+            {{messageErreur}}
+        </div>
+
+        <div *ngIf="messageOk" class="alert alert-success" role="alert">
+            {{messageOk}}
+        </div>
+
+        <button class="btn btn-primary"  [disabled]="etatForm.invalid" (click)="creerUnCollegue(etatForm)">Créer</button>
+
+    </div>
+
+
+</form>
