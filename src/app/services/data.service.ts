@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Collegue} from '../collegue/Collegue';
-import { environment } from '../../environments/environment';
+import { environmentprod } from '../../environments/environment.prod';
 
-const backendUrl = environment.backendUrl;
+const backendUrl = environmentprod.backendUrl;
 
 @Injectable({
   providedIn: 'root'
