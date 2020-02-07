@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../collegue/Collegue';
 import { DataService } from '../services/data.service';
 import { FormControl, NgForm } from '@angular/forms';
-import {CollegueComponent} from '../collegue/collegue-component'
 
 @Component({
   selector: 'app-creer-collegue',

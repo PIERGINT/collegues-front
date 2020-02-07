@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { mock } from './collegue/collegue.mock';
 import { Collegue } from './collegue/Collegue';
-
+import {CreerCollegueComponent } from './creercollegue/creer-collegue.component'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
